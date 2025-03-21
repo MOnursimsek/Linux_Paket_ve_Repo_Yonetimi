@@ -161,3 +161,40 @@ Bağımlılıkları karşılamak için kurulmuş fakat artık ihtiyaç duyulmaya
 İndirilmiş tüm paketleri **cache’den** kaldırır. Tekrar kullanılmak istenirse yeniden indirilmesi gerekecektir.  
 
 ![1](Resimler/r15.png)  
+
+
+
+## **ThirdParty Repo yükleme**
+
+Depo bilgisini doğrudan `/etc/apt/sources.list` dosyasına ekleyebilirsiniz ama `/etc/apt/sources.list.d/` dizininde yeni bir .list dosyası oluşturarak eklenmesi daha uygundur.
+
+![alt text](Resimler/r16.png)
+
+Daha sonra oluşturduğunuz dosyanın içine yeni reponuzun adresini kapyalayın ve dosyayı kaydedin.
+
+![alt text](Resimler/r17.png)
+
+Yeni repoyu kaydettikten sonra `apt upgrade` yaptığımızda GPG error alıyoruz bunun nedeni kaydı yapılan reponun gpg anahtarının tanımlanmamasıdır yani repoya erişilemiyor.
+
+![alt text](Resimler/r18.png)
+
+Gerekli anahtarı aşağıdaki gibi eklediğimiz zaman artık repo ulaşılabilir olacaktır.
+
+![alt text](Resimler/r19.png)
+
+Şimdi yeni repoyu eklemeden ve ekeldikten sonraki `apt upgrade` komutlarının çıktılarını inceleyelim.
+
+![alt text](Resimler/r20.png)
+
+Repolara erişim önceliği belirlemek istiyorsak `/etc/apt/preferences.d/` altına bir dosya oluşturup önceliği belirleyebiliriz.
+
+![alt text](Resimler/r22.png)
+
+Dosyanın isimi ve uzantısı önemli değildir. Aşağıdaki gibi yazılmış bir dosyada Pin-Priority değeri yüksek olan domain daha öncelikli olmaktadır.
+
+![alt text](Resimler/r21.png)
+
+Öncelik işlemi belirtildikden sonra `apt upgrade` komutunun çıktısı aşağıdaki gibidir.
+
+![alt text](Resimler/r23.png)
+
