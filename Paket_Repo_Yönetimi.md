@@ -198,3 +198,134 @@ Dosyanın isimi ve uzantısı önemli değildir. Aşağıdaki gibi yazılmış b
 
 ![alt text](Resimler/r23.png)
 
+
+## **GUI Paket Yöneticisi**
+
+Synaptic, Debian ve Ubuntu tabanlı Linux dağıtımları için kullanılan grafik arayüzlü (GUI) bir paket yöneticisidir. Kullanıcı dostu arayüzü sayesinde paketleri kolayca arayabilir, yükleyebilir, güncelleyebilir ve kaldırabilirsin. APT paket yönetim sistemini temel alarak çalışır ve sistemde yüklü olan veya yüklenebilecek tüm paketleri listeleyerek yönetimi basitleştirir. Terminal kullanmadan bağımlılıkları çözme, paket bilgilerini görüntüleme ve sistem güncellemelerini yönetme imkanı sunar. Synaptic, özellikle komut satırına alışkın olmayan kullanıcılar için güçlü ve pratik bir araçtır.
+
+Eğer sisteminizde kurulu değilse aşağıdaki komut ile kurulabilir.
+
+```
+apt install synaptic
+```
+
+![alt text](Resimler/r24.png)
+
+![alt text](Resimler/r25.png)
+
+## **Snap**
+
+Snap, Canonical tarafından geliştirilen ve Linux sistemlerinde yazılımların bağımsız olarak paketlenmesini sağlayan bir paket yönetim sistemidir. Geleneksel paket yöneticilerinden farklı olarak, her uygulamanın tüm bağımlılıklarıyla birlikte tek bir paket içinde sunulmasını sağlar, böylece dağıtım bağımsızlığı ve kolay kurulum imkanı sunar.
+
+```
+apt install snapd
+
+```
+
+Daha sonra istediğiniz uygulamaları kurabilirsiniz.
+
+![alt text](Resimler/r26.png)
+
+![alt text](Resimler/r27.png)
+
+Snap ile indirdiklerinizi görmek için :
+
+![alt text](Resimler/r28.png)
+
+Snap ile indirilenleri kaldırmak için :
+
+![alt text](Resimler/r29.png)
+
+Snap gibi diğer alternatif store'lar arasında Flatpak veya  AppImage da vardır. 
+
+
+## **CLI ile İndirme**
+
+### **wget**
+
+wget, Linux'ta kullanılan güçlü bir komut satırı aracıdır. Web üzerinden dosya indirmek için kullanılır. HTTP, HTTPS ve FTP protokollerini destekler. 
+
+```
+apt install wget
+```
+
+![alt text](Resimler/r30.png)
+
+### `wget` Komutunun Parametreleri  
+
+| Parametre | Açıklama |
+|-----------|---------|
+| `-O dosya_adı` | İndirilen dosyayı belirlenen isimle kaydeder. |
+| `-b` | İndirme işlemini arka planda başlatır. |
+| `-c` | Kesilen indirmeyi devam ettirir. |
+| `-i dosya.txt` | Liste dosyasındaki URL'leri sırayla indirir. |
+| `-P klasör_yolu` | Dosyayı belirtilen klasöre kaydeder. |
+| `-r` | Web sitesini veya dizini rekürsif (recursive) olarak indirir. |
+| `--limit-rate=KB/s` | İndirme hızını sınırlar (örn: `--limit-rate=200k`). |
+| `--user-agent="tarayıcı"` | Farklı bir User-Agent tanımlayarak indirme yapar. |
+| `--user=kullanici --password=sifre` | Kimlik doğrulama gerektiren sitelere giriş yaparak indirir. |
+| `--no-check-certificate` | SSL sertifika hatalarını yoksayar. |
+| `-np` | Üst dizinlere çıkmayı engeller (recursive indirme için). |
+| `-nd` | Dosyaları alt klasör oluşturmadan kaydeder. |
+| `-A uzantı` | Belirli uzantıya sahip dosyaları indirir (örn: `-A pdf`). |
+| `-m` | Web sitesinin tamamını indirir (mirror mode). |
+| `-q` | Sessiz mod (çıktıyı göstermez). |
+| `-nv` | Daha az çıktı gösterir. |
+| `-t sayı` | Belirtilen sayıda tekrar deneme yapar (örn: `-t 5`). |
+| `--timeout=saniye` | Bağlantı zaman aşımı süresini belirler. |
+
+Daha ayrıntılı bilgi için help ve man dosyalarına bakınız.
+
+---
+
+### **curl**
+
+curl, Linux'ta ve diğer işletim sistemlerinde kullanılan güçlü bir komut satırı aracıdır. Web üzerinden veri alıp göndermek için kullanılır. HTTP, HTTPS, FTP, FTPS, SCP, SFTP, LDAP, ve daha birçok protokolü destekler. curl, veri indirmenin yanı sıra, dosya yükleme (upload) ve web servisleriyle etkileşim kurma gibi işlemleri de gerçekleştirebilir. Ayrıca, HTTP başlıklarını özelleştirme, kimlik doğrulama, SSL sertifika doğrulama gibi bir dizi ileri düzey özellik sunar.
+
+
+```
+apt install curl
+```
+
+![alt text](Resimler/r31.png)
+
+
+### `curl` Komutunun Parametreleri  
+
+| Parametre | Açıklama |
+|-----------|---------|
+| `-o dosya_adı` | İndirilen dosyayı belirtilen isimle kaydeder. |
+| `-O` | Dosyayı orijinal adıyla kaydeder. |
+| `-L` | Yönlendirmeleri takip eder (HTTP 3xx durum kodları). |
+| `-u kullanıcı:şifre` | Kimlik doğrulama için kullanıcı adı ve şifre girer. |
+| `-d "veri"` | HTTP POST isteği ile veri gönderir. |
+| `-X Yöntem` | Belirtilen HTTP yöntemini (GET, POST, PUT, DELETE, vb.) kullanır. |
+| `-H "Başlık"` | Belirli bir başlık (header) ekler. |
+| `-I` | Sadece HTTP başlıklarını (headers) gösterir. |
+| `-i` | Hem HTTP başlıklarını hem de içeriği gösterir. |
+| `-F "form_verisi"` | Form verisi gönderir (multipart/form-data). |
+| `-k` | SSL sertifika doğrulamasını yoksayar. |
+| `-v` | Ayrıntılı (verbose) çıktı gösterir. |
+| `-s` | Sessiz mod (progress bar ve hata mesajlarını engeller). |
+| `-A "User-Agent"` | Farklı bir User-Agent belirtir. |
+| `--limit-rate=KB/s` | İndirme hızını sınırlar (örn: `--limit-rate=200k`). |
+| `-T dosya_adı` | Dosya yükler (upload). |
+| `-C -` | Kesilen indirmeyi devam ettirir. |
+| `-w "%{time_total}"` | İstek süresini çıktı olarak gösterir. |
+| `--data-urlencode "parametre=değer"` | URL-encode edilmiş veri gönderir. |
+| `--retry sayı` | Belirtilen sayıda tekrar deneme yapar. |
+
+
+## **Github Repo**
+
+```
+apt install git
+```
+Komutuyla git indirilir daha sonra githubdan indirmek istediğiniz reponun bağlantısını alın 
+
+![alt text](Resimler/r32.png)
+
+Bağlantıyı kullanarak bulunduğunuz dizinin altına indirme yapabilirsiniz bunun için /opt dizini önerilir.
+
+
+![alt text](Resimler/r33.png)
